@@ -150,6 +150,7 @@ function App() {
                   src="/photo.jpg"
                   alt="Muhammad Shehroz"
                   className="w-28 h-28 md:w-36 md:h-36 rounded-full border-4 border-white shadow-lg object-cover"
+                  style={{ objectFit: 'cover', objectPosition: 'center' }}
                 />
                 <div>
                   <h1 className="text-3xl md:text-4xl font-bold text-white">
@@ -165,12 +166,12 @@ function App() {
               </div>
               
               <div className="flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-4">
-                <a 
-                  href="#contact" 
+                <button 
+                  onClick={() => setActiveSection('contact')}
                   className="inline-flex items-center justify-center px-5 py-2 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 shadow-md"
                 >
                   Get in Touch
-                </a>
+                </button>
                 <a 
                   href="/shehroz-resume.pdf" 
                   download
@@ -188,14 +189,14 @@ function App() {
       {/* Section Headers for non-About sections */}
       {activeSection !== 'about' && (
         <div className="bg-white border-b">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-            <h1 className="text-4xl font-bold text-gray-900">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <h1 className="text-3xl font-bold text-gray-900">
               {activeSection === 'projects' && 'My Projects'}
               {activeSection === 'skills' && 'Skills & Expertise'}
               {activeSection === 'upwork' && 'Upwork Portfolio'}
               {activeSection === 'contact' && 'Get in Touch'}
             </h1>
-            <p className="mt-4 text-xl text-gray-600">
+            <p className="mt-2 text-lg text-gray-600">
               {activeSection === 'projects' && "Featured projects I've worked on"}
               {activeSection === 'skills' && 'Technologies and tools I specialize in'}
               {activeSection === 'upwork' && 'My freelancing journey and client reviews'}
@@ -303,70 +304,99 @@ function App() {
 
         {/* Skills Section */}
         {activeSection === 'skills' && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="bg-white rounded-lg shadow-sm p-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-                <Code2 className="w-5 h-5 mr-2" />
-                Frontend
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.frontend.map((skill, index) => (
-                  <span key={index} className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full">
-                    {skill}
-                  </span>
-                ))}
+          <div className="space-y-4">
+            {/* Combined skills grid - 3 columns */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <div className="bg-white rounded-lg shadow-sm p-3">
+                <h3 className="text-base font-semibold text-gray-900 mb-2 flex items-center">
+                  <Code2 className="w-4 h-4 mr-1.5" />
+                  Frontend
+                </h3>
+                <div className="flex flex-wrap gap-1">
+                  {skills.frontend.map((skill, index) => (
+                    <span key={index} className="px-2 py-0.5 bg-blue-100 text-blue-800 rounded-full text-xs">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <div className="bg-white rounded-lg shadow-sm p-3">
+                <h3 className="text-base font-semibold text-gray-900 mb-2 flex items-center">
+                  <Code2 className="w-4 h-4 mr-1.5" />
+                  Backend
+                </h3>
+                <div className="flex flex-wrap gap-1">
+                  {skills.backend.map((skill, index) => (
+                    <span key={index} className="px-2 py-0.5 bg-green-100 text-green-800 rounded-full text-xs">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              <div className="bg-white rounded-lg shadow-sm p-3">
+                <h3 className="text-base font-semibold text-gray-900 mb-2 flex items-center">
+                  <Code2 className="w-4 h-4 mr-1.5" />
+                  Database & Cloud
+                </h3>
+                <div className="flex flex-wrap gap-1">
+                  {[...skills.database, ...skills.cloud].map((skill, index) => (
+                    <span key={index} className="px-2 py-0.5 bg-purple-100 text-purple-800 rounded-full text-xs">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
-            <div className="bg-white rounded-lg shadow-sm p-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-                <Code2 className="w-5 h-5 mr-2" />
-                Backend
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.backend.map((skill, index) => (
-                  <span key={index} className="px-3 py-1 bg-green-100 text-green-800 rounded-full">
-                    {skill}
-                  </span>
-                ))}
+            
+            {/* Secondary skills grid - 3 columns */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              <div className="bg-white rounded-lg shadow-sm p-3">
+                <h3 className="text-base font-semibold text-gray-900 mb-2 flex items-center">
+                  <Code2 className="w-4 h-4 mr-1.5" />
+                  APIs & Integration
+                </h3>
+                <div className="flex flex-wrap gap-1">
+                  {[...skills.API].map((skill, index) => (
+                    <span key={index} className="px-2 py-0.5 bg-gray-100 text-gray-800 rounded-full text-xs">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
-            <div className="bg-white rounded-lg shadow-sm p-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-                <Code2 className="w-5 h-5 mr-2" />
-                Database & Cloud
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {[...skills.database, ...skills.cloud].map((skill, index) => (
-                  <span key={index} className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full">
-                    {skill}
-                  </span>
-                ))}
+              <div className="bg-white rounded-lg shadow-sm p-3">
+                <h3 className="text-base font-semibold text-gray-900 mb-2 flex items-center">
+                  <Code2 className="w-4 h-4 mr-1.5" />
+                  Tools
+                </h3>
+                <div className="flex flex-wrap gap-1">
+                  {[...skills.tools].map((skill, index) => (
+                    <span key={index} className="px-2 py-0.5 bg-yellow-100 text-yellow-800 rounded-full text-xs">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
-               <div className="bg-white rounded-lg shadow-sm p-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-                <Code2 className="w-5 h-5 mr-2" />
-                APIs & Integration
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {[...skills.API, ...skills.cloud].map((skill, index) => (
-                  <span key={index} className="px-3 py-1 bg-gray-100 text-gray-800 rounded-full">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div> 
-            <div className="bg-white rounded-lg shadow-sm p-6">
-              <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
-                <Code2 className="w-5 h-5 mr-2" />
-                Tools
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {[...skills.tools, ...skills.cloud].map((skill, index) => (
-                  <span key={index} className="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full">
-                    {skill}
-                  </span>
-                ))}
+              
+              {/* Certifications section - moved into the main grid */}
+              <div className="bg-white rounded-lg shadow-sm p-3">
+                <h3 className="text-base font-semibold text-gray-900 mb-2 flex items-center">
+                  <Award className="w-4 h-4 mr-1.5" />
+                  Certifications
+                </h3>
+                <div className="flex items-center">
+                  <div className="flex-grow">
+                    <div className="font-medium text-sm">Microsoft Azure Fundamentals</div>
+                    <div className="text-xs text-gray-600">Microsoft Certified</div>
+                  </div>
+                  <a 
+                    href="/azure-certificate.pdf" 
+                    download
+                    className="inline-flex items-center px-2 py-1 border border-transparent text-xs font-medium rounded-md text-blue-600 bg-blue-50 hover:bg-blue-100"
+                  >
+                    <Download className="w-3 h-3 mr-1" />
+                    Certificate
+                  </a>
+                </div>
               </div>
             </div>
           </div>
