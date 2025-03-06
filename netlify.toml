@@ -1,0 +1,13 @@
+[build]
+  command = "npm run build"
+  publish = "dist"  # Change to "build" if you're using Create React App
+
+# Remove the Next.js plugin as it's not needed for a regular React/Vite app
+# [[plugins]]
+#   package = "@netlify/plugin-nextjs"
+
+# Ensure all routes are handled by the SPA
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200 
