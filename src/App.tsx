@@ -83,7 +83,7 @@ function App() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col justify-between">
       {/* Header/Navigation */}
       <nav className="bg-white shadow-sm sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -101,6 +101,14 @@ function App() {
                 About
               </button>
               <button 
+                onClick={() => setActiveSection('upwork')}
+                className={`px-3 py-2 rounded-md text-sm font-medium ${
+                  activeSection === 'upwork' ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-600 hover:text-blue-600'
+                }`}
+              >
+                Upwork
+              </button>
+              <button 
                 onClick={() => setActiveSection('projects')}
                 className={`px-3 py-2 rounded-md text-sm font-medium ${
                   activeSection === 'projects' ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-600 hover:text-blue-600'
@@ -116,14 +124,7 @@ function App() {
               >
                 Skills
               </button>
-              <button 
-                onClick={() => setActiveSection('upwork')}
-                className={`px-3 py-2 rounded-md text-sm font-medium ${
-                  activeSection === 'upwork' ? 'text-blue-600 border-b-2 border-blue-600' : 'text-gray-600 hover:text-blue-600'
-                }`}
-              >
-                Upwork
-              </button>
+           
               <button 
                 onClick={() => setActiveSection('contact')}
                 className={`px-3 py-2 rounded-md text-sm font-medium ${
@@ -148,16 +149,16 @@ function App() {
           }}
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center flex-col">
-            <div className="mb-8">
+            <div className="flex items-center mb-8">
               <img
-                src="https://your-profile-photo-url.jpg"
+                src="/photo.jpg"
                 alt="Muhammad Shehroz"
-                className="w-40 h-40 rounded-full border-4 border-white shadow-lg"
+                className="w-40 h-40 rounded-full border-4 border-white shadow-lg mr-4"
               />
+              <h1 className="text-4xl font-bold text-white sm:text-5xl md:text-6xl">
+                Muhammad Shehroz
+              </h1>
             </div>
-            <h1 className="text-4xl font-bold text-white sm:text-5xl md:text-6xl text-center">
-              Full Stack .NET & Angular Developer
-            </h1>
             <p className="mt-3 max-w-md mx-auto text-base text-gray-300 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl text-center">
               6 years of experience building enterprise-grade applications
             </p>
@@ -166,7 +167,7 @@ function App() {
                 Get in Touch
               </a>
               <a 
-                href="/path-to-your-resume.pdf" 
+                href="/shehroz-resume.pdf" 
                 download
                 className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-blue-600 bg-white hover:bg-gray-50"
               >
@@ -199,7 +200,7 @@ function App() {
       )}
 
       {/* Main Content */}
-      <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* About Section */}
         {activeSection === 'about' && (
           <div className="bg-white rounded-lg shadow-sm p-6">
@@ -209,6 +210,69 @@ function App() {
               from healthcare to fintech. My passion lies in creating scalable, maintainable solutions that solve real-world problems.
             </p>
           </div>
+        )}
+
+          {/* Upwork Section */}
+          {activeSection === 'upwork' && (
+          <>
+            <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
+              <div className="grid grid-cols-1 md:grid-cols-5 gap-6 mb-6">
+                <div className="text-center p-4 bg-blue-50 rounded-lg">
+                  <DollarSign className="w-8 h-8 text-blue-600 mx-auto mb-2" />
+                  <div className="text-3xl font-bold text-blue-600">$10K+</div>
+                  <div className="text-gray-600">Total Earnings</div>
+                </div>
+                <div className="text-center p-4 bg-green-50 rounded-lg">
+                  <Award className="w-8 h-8 text-green-600 mx-auto mb-2" />
+                  <div className="text-3xl font-bold text-green-600">16</div>
+                  <div className="text-gray-600">Total Jobs</div>
+                </div>
+                <div className="text-center p-4 bg-purple-50 rounded-lg">
+                  <Clock className="w-8 h-8 text-purple-600 mx-auto mb-2" />
+                  <div className="text-3xl font-bold text-purple-600">1,280</div>
+                  <div className="text-gray-600">Total Hours</div>
+                </div>
+                <div className="text-center p-4 bg-gray-50 rounded-lg">
+                  <Pentagon className="w-8 h-8 text-gray-600 mx-auto mb-2" />
+                  <div className="text-3xl font-bold text-gray-600">100%</div>
+                  <div className="text-gray-600">Job Success</div>
+                </div> 
+                    <div className="text-center p-4 bg-yellow-50 rounded-lg">
+                  <Award className="w-8 h-8 text-yellow-600 mx-auto mb-2" />
+                  <div className="text-3xl font-bold text-yellow-600">Top Rated</div>
+                  <div className="text-gray-600">Badge</div>
+                </div>
+              </div>
+              <div className="flex items-center mb-4">
+                <Briefcase className="w-6 h-6 text-green-600 mr-2" />
+                <span className="text-xl font-semibold">5 Years on Upwork</span>
+              </div>
+              <a 
+                href="https://www.upwork.com/freelancers/~0135086a8cef0ac7a4" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-green-600 hover:text-green-700"
+              >
+                View Upwork Profile <ExternalLink className="w-4 h-4 ml-1" />
+              </a>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {reviews.map((review, index) => (
+                <div key={index} className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
+                  <div className="flex items-center mb-4">
+                    {[...Array(Math.floor(review.rating))].map((_, i) => (
+                      <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                    ))}
+                    {review.rating % 1 !== 0 && (
+                      <Star className="w-5 h-5 text-yellow-400 fill-current opacity-50" />
+                    )}
+                  </div>
+                  <p className="text-gray-600 mb-4 line-clamp-4">{review.text}</p>
+                  <p className="text-sm font-medium text-blue-600">{review.client}</p>
+                </div>
+              ))}
+            </div>
+          </>
         )}
 
         {/* Projects Section */}
@@ -287,7 +351,7 @@ function App() {
               </div>
             </div> 
             <div className="bg-white rounded-lg shadow-sm p-6">
-              <h3 className="text-xl font-semibold text-yellow-900 mb-4 flex items-center">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
                 <Code2 className="w-5 h-5 mr-2" />
                 Tools
               </h3>
@@ -302,73 +366,12 @@ function App() {
           </div>
         )}
 
-        {/* Upwork Section */}
-        {activeSection === 'upwork' && (
-          <>
-            <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
-              <div className="grid grid-cols-1 md:grid-cols-5 gap-6 mb-6">
-                <div className="text-center p-4 bg-blue-50 rounded-lg">
-                  <DollarSign className="w-8 h-8 text-blue-600 mx-auto mb-2" />
-                  <div className="text-3xl font-bold text-blue-600">$10K+</div>
-                  <div className="text-gray-600">Total Earnings</div>
-                </div>
-                <div className="text-center p-4 bg-green-50 rounded-lg">
-                  <Award className="w-8 h-8 text-green-600 mx-auto mb-2" />
-                  <div className="text-3xl font-bold text-green-600">16</div>
-                  <div className="text-gray-600">Total Jobs</div>
-                </div>
-                <div className="text-center p-4 bg-purple-50 rounded-lg">
-                  <Clock className="w-8 h-8 text-purple-600 mx-auto mb-2" />
-                  <div className="text-3xl font-bold text-purple-600">1,280</div>
-                  <div className="text-gray-600">Total Hours</div>
-                </div>
-                <div className="text-center p-4 bg-gray-50 rounded-lg">
-                  <Pentagon className="w-8 h-8 text-gray-600 mx-auto mb-2" />
-                  <div className="text-3xl font-bold text-gray-600">100%</div>
-                  <div className="text-gray-600">Job Success</div>
-                </div> 
-                    <div className="text-center p-4 bg-yellow-50 rounded-lg">
-                  <Award className="w-8 h-8 text-yellow-600 mx-auto mb-2" />
-                  <div className="text-3xl font-bold text-yellow-600">Top Rated</div>
-                  <div className="text-gray-600">Badge</div>
-                </div>
-              </div>
-              <div className="flex items-center mb-4">
-                <Briefcase className="w-6 h-6 text-green-600 mr-2" />
-                <span className="text-xl font-semibold">5 Years on Upwork</span>
-              </div>
-              <a 
-                href="https://www.upwork.com/freelancers/~0135086a8cef0ac7a4" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center text-green-600 hover:text-green-700"
-              >
-                View Upwork Profile <ExternalLink className="w-4 h-4 ml-1" />
-              </a>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {reviews.map((review, index) => (
-                <div key={index} className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
-                  <div className="flex items-center mb-4">
-                    {[...Array(Math.floor(review.rating))].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                    ))}
-                    {review.rating % 1 !== 0 && (
-                      <Star className="w-5 h-5 text-yellow-400 fill-current opacity-50" />
-                    )}
-                  </div>
-                  <p className="text-gray-600 mb-4 line-clamp-4">{review.text}</p>
-                  <p className="text-sm font-medium text-blue-600">{review.client}</p>
-                </div>
-              ))}
-            </div>
-          </>
-        )}
+      
 
         {/* Contact Section */}
         {activeSection === 'contact' && (
           <div className="bg-white rounded-lg shadow-sm p-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
               <a 
                 href="mailto:1996shehroz@gmail.com" 
                 className="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100"
