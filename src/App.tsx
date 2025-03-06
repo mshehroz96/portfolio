@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Github, Linkedin, Mail, ExternalLink, Star, Code2, Briefcase, Download, Clock, DollarSign, Award } from 'lucide-react';
+import { Github, Linkedin, Mail, ExternalLink, Star, Code2, Briefcase, Download, Clock, DollarSign, Award, Phone, Pentagon } from 'lucide-react';
 
 function App() {
   const [activeSection, setActiveSection] = useState('about');
@@ -26,11 +26,12 @@ function App() {
   ];
 
   const skills = {
-    frontend: ["Angular", "TypeScript", "RxJS", "Material UI", "Bootstrap"],
-    backend: [".NET Core", "C#", "ASP.NET", "Web API", "Entity Framework"],
-    database: ["SQL Server", "MongoDB", "Redis"],
-    cloud: ["Azure", "AWS", "Docker", "Kubernetes"],
-    tools: ["Git", "JIRA", "Azure DevOps", "Visual Studio"]
+    frontend: ["HTML", "CSS", "Bootstrap", "Angular", "TypeScript", "JQuery", "PrimeNG"],
+    backend: [ "C#", ".NET", ".NET MVC" , ".NET Core", "Web API", "Windows Services", "WCF Service", "Hangire" , "Entity Framework", "Dapper"],
+    database: ["SQL Server", "Oracle", "MongoDB"],
+    cloud: ["Azure"],
+    tools: ["Git", "JIRA", "Azure DevOps", "Visual Studio", "Visual Studio Code", "Postman", "Swagger"],
+    API: ["Stripe", "OpenAI", "Zoom", "Rapyd Integration","Roxe Integration", "Sovren"],
   };
 
   const reviews = [
@@ -82,7 +83,7 @@ function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen flex flex-col">
       {/* Header/Navigation */}
       <nav className="bg-white shadow-sm sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -198,7 +199,7 @@ function App() {
       )}
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* About Section */}
         {activeSection === 'about' && (
           <div className="bg-white rounded-lg shadow-sm p-6">
@@ -272,6 +273,32 @@ function App() {
                 ))}
               </div>
             </div>
+               <div className="bg-white rounded-lg shadow-sm p-6">
+              <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center">
+                <Code2 className="w-5 h-5 mr-2" />
+                APIs & Integration
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {[...skills.API, ...skills.cloud].map((skill, index) => (
+                  <span key={index} className="px-3 py-1 bg-gray-100 text-gray-800 rounded-full">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div> 
+            <div className="bg-white rounded-lg shadow-sm p-6">
+              <h3 className="text-xl font-semibold text-yellow-900 mb-4 flex items-center">
+                <Code2 className="w-5 h-5 mr-2" />
+                Tools
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {[...skills.tools, ...skills.cloud].map((skill, index) => (
+                  <span key={index} className="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
         )}
 
@@ -279,7 +306,7 @@ function App() {
         {activeSection === 'upwork' && (
           <>
             <div className="bg-white rounded-lg shadow-sm p-6 mb-8">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+              <div className="grid grid-cols-1 md:grid-cols-5 gap-6 mb-6">
                 <div className="text-center p-4 bg-blue-50 rounded-lg">
                   <DollarSign className="w-8 h-8 text-blue-600 mx-auto mb-2" />
                   <div className="text-3xl font-bold text-blue-600">$10K+</div>
@@ -294,6 +321,16 @@ function App() {
                   <Clock className="w-8 h-8 text-purple-600 mx-auto mb-2" />
                   <div className="text-3xl font-bold text-purple-600">1,280</div>
                   <div className="text-gray-600">Total Hours</div>
+                </div>
+                <div className="text-center p-4 bg-gray-50 rounded-lg">
+                  <Pentagon className="w-8 h-8 text-gray-600 mx-auto mb-2" />
+                  <div className="text-3xl font-bold text-gray-600">100%</div>
+                  <div className="text-gray-600">Job Success</div>
+                </div> 
+                    <div className="text-center p-4 bg-yellow-50 rounded-lg">
+                  <Award className="w-8 h-8 text-yellow-600 mx-auto mb-2" />
+                  <div className="text-3xl font-bold text-yellow-600">Top Rated</div>
+                  <div className="text-gray-600">Badge</div>
                 </div>
               </div>
               <div className="flex items-center mb-4">
@@ -338,6 +375,13 @@ function App() {
               >
                 <Mail className="w-6 h-6 text-gray-600 mr-3" />
                 <span className="text-gray-800">1996shehroz@gmail.com</span>
+              </a> 
+               <a 
+                href="mailto:1996shehroz@gmail.com" 
+                className="flex items-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100"
+              >
+                <Phone className="w-6 h-6 text-gray-600 mr-3" />
+                <span className="text-gray-800">+971 521818327</span>
               </a>
               <a 
                 href="https://github.com/mshehroz96" 
