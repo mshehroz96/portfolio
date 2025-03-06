@@ -88,9 +88,9 @@ function App() {
       <nav className="bg-white shadow-sm sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
-            <div className="flex items-center">
-              <span className="text-2xl font-bold text-gray-900">Muhammad Shehroz</span>
-            </div>
+          <div className="flex items-center">
+              <span className="text-2xl font-bold text-gray-900"></span>
+            </div> 
             <div className="flex items-center space-x-4">
               <button 
                 onClick={() => setActiveSection('about')}
@@ -141,39 +141,45 @@ function App() {
       {/* Hero Section - Only shown on About */}
       {activeSection === 'about' && (
         <div 
-          className="relative bg-cover bg-center py-32" 
-          style={{
-            backgroundImage: 'url("https://images.unsplash.com/photo-1517134191118-9d595e4c8c2b?ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80")',
-            backgroundColor: 'rgba(0, 0, 0, 0.7)',
-            backgroundBlendMode: 'overlay'
-          }}
+          className="relative bg-gradient-to-r from-gray-900 to-blue-900 py-16"
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center flex-col">
-            <div className="flex items-center mb-8">
-              <img
-                src="/photo.jpg"
-                alt="Muhammad Shehroz"
-                className="w-40 h-40 rounded-full border-4 border-white shadow-lg mr-4"
-              />
-              <h1 className="text-4xl font-bold text-white sm:text-5xl md:text-6xl">
-                Muhammad Shehroz
-              </h1>
-            </div>
-            <p className="mt-3 max-w-md mx-auto text-base text-gray-300 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl text-center">
-              6 years of experience building enterprise-grade applications
-            </p>
-            <div className="mt-5 flex justify-center space-x-4">
-              <a href="#contact" className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">
-                Get in Touch
-              </a>
-              <a 
-                href="/shehroz-resume.pdf" 
-                download
-                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-blue-600 bg-white hover:bg-gray-50"
-              >
-                <Download className="w-5 h-5 mr-2" />
-                Download Resume
-              </a>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+              <div className="flex items-center space-x-6">
+                <img
+                  src="/photo.jpg"
+                  alt="Muhammad Shehroz"
+                  className="w-28 h-28 md:w-36 md:h-36 rounded-full border-4 border-white shadow-lg object-cover"
+                />
+                <div>
+                  <h1 className="text-3xl md:text-4xl font-bold text-white">
+                    Muhammad Shehroz
+                  </h1>
+                  <h2 className="text-xl md:text-2xl font-semibold text-blue-300 mt-1">
+                    Full Stack .NET & Angular Developer
+                  </h2>
+                  <p className="text-gray-300 mt-2">
+                    6 years of experience building enterprise-grade applications
+                  </p>
+                </div>
+              </div>
+              
+              <div className="flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-4">
+                <a 
+                  href="#contact" 
+                  className="inline-flex items-center justify-center px-5 py-2 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 shadow-md"
+                >
+                  Get in Touch
+                </a>
+                <a 
+                  href="/shehroz-resume.pdf" 
+                  download
+                  className="inline-flex items-center justify-center px-5 py-2 border border-transparent text-base font-medium rounded-md text-blue-100 bg-blue-800 hover:bg-blue-700 shadow-md"
+                >
+                  <Download className="w-4 h-4 mr-2" />
+                  Download Resume
+                </a>
+              </div>
             </div>
           </div>
         </div>
