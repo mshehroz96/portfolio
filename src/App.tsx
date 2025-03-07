@@ -51,19 +51,19 @@ function App() {
       title: "Healthcare Insurance Platform",
       description: ["Automated claim processing with Hangfire, cutting manual processing time by 60%.","Built comprehensive reports for brokers, clients, and insurers, enhancing decision-making efficiency."," Implemented a control feature allowing clients to renew or request new policies with a grace period, increasing policy renewals by 15% and improving client retention.", "Provided ongoing support and bug fixing, resolving critical issues and maintaining system stability."],
       tech: ["Angular", ".NET 6", ".NET MVC", "SQL Server", "Window Services"],
-      role: "Full Stack Developer"
+      role: "Senior Full Stack Developer"
     },
     {
       title: "Fintech ATM Monitoring & Security Solutions",
       description: ["Developed the iWatch product to monitor ATM health and cash positions, leading to a 20% reduction in ATM downtime","Engineered the iCam product for real-time capture and transmission of transaction images/videos, enhancing security monitoring by 25% across 500+ ATMs","Integrated back-end data processing with front-end display using Angular and Web APIs, ensuring seamless data visualization and real-time updates across banking solutions."],
       tech: [".NET Core", "Angular", "SQL Server", "Windows Services", "WCF Services"],
-      role: "Software Engineer"
+      role: "Senior Software Engineer"
     },
     {
       title: "HireFlow: Automated Recruitment & Job Posting Management",
       description: ["Developed a Job Posting Management tool, including features for tracking job posting costs and an 'Apply for Job' feature, integrating with Sovren to streamline candidate applications.", "Designed role-specific dashboards for Clients, Recruiters, and Managers, improving performance tracking and increasing user efficiency by 20%.","Implemented a comprehensive notification system across all job roles, automating email and SMS alerts, which increased recruiter response time by 25% and enhanced candidate engagement."],
       tech: [".NET", "Angular", "SQL Server"],
-      role: "Senior Developer"
+      role: "Full Stack Developer"
     }
   ];
 
