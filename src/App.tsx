@@ -6,21 +6,21 @@ function App() {
 
   const projects = [
     {
-      title: "Enterprise Resource Management System",
-      description: "Led the development of a large-scale ERP system using .NET Core and Angular, serving 500+ daily users.",
-      tech: [".NET Core", "Angular", "SQL Server", "Azure"],
-      role: "Lead Developer"
-    },
-    {
-      title: "Healthcare Analytics Platform",
-      description: "Developed a real-time analytics dashboard for healthcare providers using Angular and SignalR.",
-      tech: ["Angular", ".NET", "SignalR", "Azure"],
+      title: "Healthcare Insurance Platform",
+      description: ["Automated claim processing with Hangfire, cutting manual processing time by 60%.","Built comprehensive reports for brokers, clients, and insurers, enhancing decision-making efficiency."," Implemented a control feature allowing clients to renew or request new policies with a grace period, increasing policy renewals by 15% and improving client retention.", "Provided ongoing support and bug fixing, resolving critical issues and maintaining system stability."],
+      tech: ["Angular", ".NET 6 ",, ".NET MVC", "SQL Server", "Window Services"],
       role: "Full Stack Developer"
     },
     {
-      title: "Financial Trading Platform",
-      description: "Built a high-performance trading platform handling 1000+ transactions per second.",
-      tech: [".NET", "Angular", "Redis", "RabbitMQ"],
+      title: "Fintech ATM Monitoring & Security Solutions",
+      description: ["Developed the iWatch product to monitor ATM health and cash positions, leading to a 20% reduction in ATM downtime","Engineered the iCam product for real-time capture and transmission of transaction images/videos, enhancing security monitoring by 25% across 500+ ATMs","Integrated back-end data processing with front-end display using Angular and Web APIs, ensuring seamless data visualization and real-time updates across banking solutions."],
+      tech: [".NET Core", "Angular", "SQL Server", "Windows Services", "WCF Services"],
+      role: "Software Engineer"
+    },
+    {
+      title: "HireFlow: Automated Recruitment & Job Posting Management",
+      description: [" Developed a Job Posting Management tool, including features for tracking job posting costs and an 'Apply for Job' feature, integrating with Sovren to streamline candidate applications.", "Designed role-specific dashboards for Clients, Recruiters, and Managers, improving performance tracking and increasing user efficiency by 20%.","Implemented a comprehensive notification system across all job roles, automating email and SMS alerts, which increased recruiter response time by 25% and enhanced candidate engagement."],
+      tech: [".NET", "Angular", "SQL Server",],
       role: "Senior Developer"
     }
   ];
@@ -286,8 +286,18 @@ function App() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project, index) => (
               <div key={index} className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">{project.title}</h3>
-                <p className="text-gray-600 mb-4">{project.description}</p>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">{project.title}</h3>
+                <ul className="list-disc list-inside space-y-2 text-gray-600 mb-4">
+                  {Array.isArray(project.description) ? (
+                    project.description.map((desc, i) => (
+                      <li key={i} className="text-sm leading-relaxed">
+                        {desc}
+                      </li>
+                    ))
+                  ) : (
+                    <li className="text-sm leading-relaxed">{project.description}</li>
+                  )}
+                </ul>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tech.map((tech, i) => (
                     <span key={i} className="px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">
@@ -295,7 +305,7 @@ function App() {
                     </span>
                   ))}
                 </div>
-                <p className="text-sm text-gray-500">Role: {project.role}</p>
+                <p className="text-sm text-gray-500 font-medium">Role: {project.role}</p>
               </div>
             ))}
           </div>
